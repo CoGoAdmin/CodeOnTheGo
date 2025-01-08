@@ -81,10 +81,10 @@ constructor(
 //          R.string.title_terminal,
 //          R.drawable.ic_terminal)
 
-//        val preferences = MainScreenAction(
-//          ACTION_PREFERENCES,
-//          R.string.msg_preferences,
-//          R.drawable.ic_settings)
+        val preferences = MainScreenAction(
+          ACTION_PREFERENCES,
+          R.string.msg_preferences,
+          R.drawable.ic_settings)
 
 //        val donate = MainScreenAction(
 //          ACTION_DONATE,
@@ -104,7 +104,7 @@ constructor(
 //TODO JMT Move to Advanced
 //          cloneGitRepository,
 //          openTerminal,
-//          preferences,
+          preferences,
 //          donate,
           docs
         )

@@ -63,10 +63,6 @@ abstract class IDETooltipDatabase : RoomDatabase() {
             val dao = db.idetooltipDao()
 
             val jsonString: String =  loadJsonFromAssets(context, "CoGoTooltips/misc/CoGoTooltips.json")
-            if(jsonString.isBlank()) {
-                Log.e("loadData", "loading tooltip database failed - " + "JSon file missing or empty")
-                return@launch
-            }
             val arrayObj: JSONArray = JSONArray(jsonString)
             try {
             for( index in 0 until arrayObj.length()) {
@@ -74,7 +70,7 @@ abstract class IDETooltipDatabase : RoomDatabase() {
                 val tag = jsonObj.getString("tag")
                 val summary = jsonObj.getString("summary")
                 val detail = jsonObj.getString("detail")
-                val buttonList = jsonObj.get("buttons") as JSONArray
+                val buttonList = jsonObj.get("buttonList") as JSONArray
                 val buttonsList = readJsonArrayOfArrays(context, buttonList)
                 val item = IDETooltipItem(
                     tooltipTag = tag,
@@ -86,15 +82,14 @@ abstract class IDETooltipDatabase : RoomDatabase() {
                 dao.insert(item)
             }
 
-
-//            val tooltipItemList: List<IDETooltipItem> = dao.getTooltipItems()
-//            tooltipItemList.forEach { tooltipItem ->
-//                Log.d(
-//                    "TooltipRoomDatabase",
-//                    "after insert database - itemTag = ${tooltipItem.tooltipTag}, " +
-//                            "summary = ${tooltipItem.summary}, detail=${tooltipItem.detail}"
-//                )
-//            }
+            val tooltipItemList: List<IDETooltipItem> = dao.getTooltipItems()
+            tooltipItemList.forEach { tooltipItem ->
+                Log.d(
+                    "TooltipRoomDatabase",
+                    "after insert database - itemTag = ${tooltipItem.tooltipTag}, " +
+                            "summary = ${tooltipItem.summary}, detail=${tooltipItem.detail}"
+                )
+            }
 
 
         } catch(e: Exception) {
