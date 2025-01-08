@@ -58,11 +58,11 @@
         android:layout_margin="5dp"
         android:contentDescription="@string/fab_more"
         android:text="@string/more"
-        android:src="@drawable/twotone_read_more_24"
+        android:src="@drawable/ic_action_read_more"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:srcCompat="@drawable/twotone_read_more_24" />
+        app:srcCompat="@drawable/ic_action_read_more" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

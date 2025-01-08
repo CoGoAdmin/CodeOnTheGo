@@ -187,7 +187,7 @@ object TooltipUtils {
 
             // Inflate the PopupWindow layout
             val buttonId = listOf(R.id.button1, R.id.button2, R.id.button3)
-            val fab = popupView.findViewById<Button>(R.id.fab)
+            val fab = popupView.findViewById<FloatingActionButton>(R.id.fab)
             val tooltipText = when (level) {
                 0 -> tooltip.summary
                 1 -> tooltip.summary + "<br/>" + tooltip.detail
