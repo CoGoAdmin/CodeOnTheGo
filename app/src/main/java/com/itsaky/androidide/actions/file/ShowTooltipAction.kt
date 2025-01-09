@@ -23,7 +23,7 @@ import com.itsaky.androidide.R
 import com.itsaky.androidide.actions.ActionData
 import com.itsaky.androidide.actions.ActionItem
 import com.itsaky.androidide.actions.EditorRelatedAction
-import com.itsaky.androidide.utils.TooltipUtils
+import com.itsaky.androidide.tooltips.TooltipUtils
 
 class ShowTooltipAction(private val context: Context, override val order: Int) :
     EditorRelatedAction() {
