@@ -20,7 +20,6 @@ package com.itsaky.androidide.utils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -31,22 +30,19 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.PopupWindow
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentTransaction
-import com.android.aaptcompiler.Visibility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.itsaky.androidide.R
 import com.itsaky.androidide.activities.MainActivity
 import com.itsaky.androidide.fragments.IDETooltipWebviewFragment
 import com.itsaky.androidide.fragments.MainFragment
-import com.itsaky.androidide.idetooltips.IDETooltipDatabase
-import com.itsaky.androidide.idetooltips.IDETooltipItem
+import com.itsaky.androidide.tooltips.ide.IDETooltipDatabase
+import com.itsaky.androidide.tooltips.ide.IDETooltipItem
 import io.github.rosemoe.sora.widget.CodeEditor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.reflect.Method
 
 object TooltipUtils {
     private val mainActivity: MainActivity?
@@ -242,10 +238,11 @@ object TooltipUtils {
     }
 }
 
-suspend fun dumpDatabase(context: Context, database: IDETooltipDatabase) {
+    //TODO JMT ???
+suspend fun dumpIDEDatabase(context: Context, database: IDETooltipDatabase) {
     CoroutineScope(Dispatchers.IO).launch {
         val records =
-            IDETooltipDatabase.getDatabase(context).idetooltipDao().getTooltipItems()
+            IDETooltipDatabase.getDatabase(context).idetooltipDao().getIDETooltipItems()
         withContext(Dispatchers.Main) {
             for (item: IDETooltipItem in records) {
                 Log.d(

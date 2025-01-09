@@ -43,8 +43,8 @@ import com.itsaky.androidide.events.EditorEventsIndex
 import com.itsaky.androidide.events.LspApiEventsIndex
 import com.itsaky.androidide.events.LspJavaEventsIndex
 import com.itsaky.androidide.events.ProjectsApiEventsIndex
-import com.itsaky.androidide.idetooltips.IDETooltipDao
-import com.itsaky.androidide.idetooltips.IDETooltipDatabase
+import com.itsaky.androidide.tooltips.ide.IDETooltipDao
+import com.itsaky.androidide.tooltips.ide.IDETooltipDatabase
 import com.itsaky.androidide.localHTTPServer.LocalServerUtil
 import com.itsaky.androidide.preferences.internal.DevOpsPreferences
 import com.itsaky.androidide.preferences.internal.GeneralPreferences

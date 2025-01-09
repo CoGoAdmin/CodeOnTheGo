@@ -48,7 +48,7 @@ import com.itsaky.androidide.editor.schemes.IDEColorSchemeProvider
 import com.itsaky.androidide.editor.ui.IDEEditor
 import com.itsaky.androidide.eventbus.events.editor.DocumentChangeEvent
 import com.itsaky.androidide.eventbus.events.file.FileRenameEvent
-import com.itsaky.androidide.idetooltips.IDETooltipItem
+import com.itsaky.androidide.tooltips.ide.IDETooltipItem
 import com.itsaky.androidide.interfaces.IEditorHandler
 import com.itsaky.androidide.models.FileExtension
 import com.itsaky.androidide.models.OpenedFile
