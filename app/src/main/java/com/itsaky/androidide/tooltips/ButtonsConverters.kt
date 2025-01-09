@@ -15,7 +15,7 @@
  *   along with AndroidIDE.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.itsaky.androidide.idetooltips
+package com.itsaky.androidide.tooltips
 
 import androidx.room.TypeConverter
 import com.google.common.reflect.TypeToken

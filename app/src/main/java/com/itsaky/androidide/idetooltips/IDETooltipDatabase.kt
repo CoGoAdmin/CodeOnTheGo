@@ -23,6 +23,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.itsaky.androidide.tooltips.ButtonsConverters
+import com.itsaky.androidide.tooltips.IDETooltipDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
