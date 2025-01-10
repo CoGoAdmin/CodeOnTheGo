@@ -52,6 +52,7 @@ import com.itsaky.androidide.preferences.internal.StatPreferences
 import com.itsaky.androidide.resources.localization.LocaleProvider
 import com.itsaky.androidide.stats.StatUploadWorker
 import com.itsaky.androidide.syntax.colorschemes.SchemeAndroidIDE
+import com.itsaky.androidide.tooltips.TooltipDatabaseProvider
 import com.itsaky.androidide.treesitter.TreeSitter
 import com.itsaky.androidide.ui.themes.IDETheme
 import com.itsaky.androidide.ui.themes.IThemeManager
@@ -135,12 +136,15 @@ class IDEApplication : TermuxApplication() {
             IDEColorSchemeProvider.init()
         }
 
-        idetooltipDao = IDETooltipDatabase.getDatabase(this).idetooltipDao()
-
-        //Trigger a lightweight database access to force initialization
-        applicationScope.launch {
-            idetooltipDao.getCount()
-        }
+        //defer this until needed and invoked by getDatabase
+//        val toolipDB = TooltipDatabaseProvider.getDatabase(this)
+//
+//        //Trigger a lightweight database access to force initialization
+//        applicationScope.launch {
+//            toolipDB.ideTooltipDao().getCount()
+//            toolipDB.javaTooltipDao().getCount()
+//            toolipDB.kotlinTooltipDao().getCount()
+//        }
     }
 
     private fun handleCrash(thread: Thread, th: Throwable) {
