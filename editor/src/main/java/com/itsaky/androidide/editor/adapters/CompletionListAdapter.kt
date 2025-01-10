@@ -25,8 +25,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.itsaky.androidide.editor.R
-import com.itsaky.androidide.editor.databinding.LayoutCompletionItemBinding
+import org.appdevforall.codeonthego.editor.R
+import org.appdevforall.codeonthego.editor.databinding.LayoutCompletionItemBinding
 import com.itsaky.androidide.lookup.Lookup
 import com.itsaky.androidide.lsp.models.ClassCompletionData
 import com.itsaky.androidide.lsp.models.CompletionItemKind.CLASS
@@ -38,9 +38,9 @@ import com.itsaky.androidide.lsp.models.CompletionItemKind.METHOD
 import com.itsaky.androidide.lsp.models.MemberCompletionData
 import com.itsaky.androidide.lsp.models.MethodCompletionData
 import com.itsaky.androidide.preferences.internal.EditorPreferences
-import com.itsaky.androidide.resources.R.string.msg_api_info_deprecated
-import com.itsaky.androidide.resources.R.string.msg_api_info_removed
-import com.itsaky.androidide.resources.R.string.msg_api_info_since
+import org.appdevforall.codeonthego.resources.R.string.msg_api_info_deprecated
+import org.appdevforall.codeonthego.resources.R.string.msg_api_info_removed
+import org.appdevforall.codeonthego.resources.R.string.msg_api_info_since
 import com.itsaky.androidide.syntax.colorschemes.SchemeAndroidIDE
 import com.itsaky.androidide.syntax.colorschemes.SchemeAndroidIDE.COMPLETION_WND_TEXT_API
 import com.itsaky.androidide.syntax.colorschemes.SchemeAndroidIDE.COMPLETION_WND_TEXT_DETAIL

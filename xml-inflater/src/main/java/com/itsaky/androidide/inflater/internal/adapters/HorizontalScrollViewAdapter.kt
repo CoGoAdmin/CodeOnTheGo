@@ -24,7 +24,7 @@ import com.itsaky.androidide.inflater.AttributeHandlerScope
 import com.itsaky.androidide.inflater.IView
 import com.itsaky.androidide.inflater.IViewGroup
 import com.itsaky.androidide.inflater.models.UiWidget
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 
 /**
  * View adapter for [HorizontalScrollView].

@@ -19,7 +19,7 @@ package com.itsaky.androidide.tasks
 import android.app.ProgressDialog
 import android.content.Context
 import com.blankj.utilcode.util.ThreadUtils
-import com.itsaky.androidide.common.R
+import org.appdevforall.codeonthego.common.R
 import org.slf4j.LoggerFactory
 import java.util.concurrent.Callable
 import java.util.concurrent.CompletableFuture

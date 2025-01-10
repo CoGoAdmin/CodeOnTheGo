@@ -26,11 +26,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.itsaky.androidide.inflater.utils.newAttribute
 import com.itsaky.androidide.inflater.viewAdapter
-import com.itsaky.androidide.uidesigner.R
-import com.itsaky.androidide.uidesigner.R.string
+import org.appdevforall.codeonthego.uidesigner.R
+import org.appdevforall.codeonthego.uidesigner.R.string
 import com.itsaky.androidide.uidesigner.adapters.AddAttrListAdapter
-import com.itsaky.androidide.uidesigner.databinding.LayoutAddAttrBinding
-import com.itsaky.androidide.uidesigner.databinding.LayoutViewInfoHeaderBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.LayoutAddAttrBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.LayoutViewInfoHeaderBinding
 import com.itsaky.androidide.uidesigner.models.UiAttribute
 import com.itsaky.androidide.uidesigner.viewmodel.WorkspaceViewModel
 

@@ -18,9 +18,9 @@
 package com.itsaky.androidide.editor.ui
 
 import android.view.LayoutInflater
-import com.itsaky.androidide.editor.databinding.LayoutEditorFindReplaceBinding
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 import com.itsaky.androidide.utils.DialogUtils
+import org.appdevforall.codeonthego.editor.databinding.LayoutEditorFindReplaceBinding
 import org.slf4j.LoggerFactory
 
 /**

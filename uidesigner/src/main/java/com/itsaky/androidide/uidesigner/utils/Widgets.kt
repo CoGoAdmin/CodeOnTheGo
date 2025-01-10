@@ -21,7 +21,7 @@ import com.itsaky.androidide.annotations.uidesigner.IncludeInDesigner.Group.LAYO
 import com.itsaky.androidide.annotations.uidesigner.IncludeInDesigner.Group.WIDGETS
 import com.itsaky.androidide.inflater.IViewAdapterIndex
 import com.itsaky.androidide.inflater.internal.utils.simpleName
-import com.itsaky.androidide.uidesigner.R.string
+import org.appdevforall.codeonthego.uidesigner.R.string
 import com.itsaky.androidide.uidesigner.models.UiWidgetCategory
 
 internal object Widgets {

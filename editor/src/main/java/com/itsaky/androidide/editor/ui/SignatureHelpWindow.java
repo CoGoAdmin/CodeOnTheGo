@@ -17,7 +17,7 @@
 
 package com.itsaky.androidide.editor.ui;
 
-import static com.itsaky.androidide.editor.R.attr;
+import static org.appdevforall.codeonthego.editor.R.attr;
 
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;

@@ -27,11 +27,12 @@ import com.itsaky.androidide.editor.schemes.IDEColorSchemeProvider
 import com.itsaky.androidide.editor.ui.IDEEditor
 import com.itsaky.androidide.preferences.internal.EditorPreferences
 import com.itsaky.androidide.syntax.colorschemes.SchemeAndroidIDE
-import com.itsaky.androidide.uidesigner.databinding.ActivityShowXmlBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.ActivityShowXmlBinding
 import com.itsaky.androidide.utils.flashInfo
 import com.itsaky.androidide.utils.jetbrainsMono
 import io.github.rosemoe.sora.event.Unsubscribe
 import io.github.rosemoe.sora.widget.CodeEditor
+import org.appdevforall.codeonthego.uidesigner.R
 import org.slf4j.LoggerFactory
 
 /**

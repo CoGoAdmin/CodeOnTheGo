@@ -18,7 +18,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
   <queries>
-    <package android:name="com.itsaky.androidide" />
+    <package android:name="org.appdevforall.codeonthego" />
   </queries>
 
   <uses-permission android:name="android.permission.INTERNET" />
@@ -27,12 +27,12 @@
 
   <application>
     <provider
-      android:name=".utils.LogSenderInstaller"
+      android:name="com.itsaky.androidide.logsender.utils.LogSenderInstaller"
       android:authorities="${applicationId}.logsender-installer"
       android:enabled="@bool/logsender_enabled"
       android:exported="false" />
     <service
-      android:name=".LogSenderService"
+      android:name="com.itsaky.androidide.logsender.LogSenderService"
       android:foregroundServiceType="dataSync"
       android:exported="false" />
   </application>

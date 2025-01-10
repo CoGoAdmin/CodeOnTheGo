@@ -27,7 +27,7 @@ import android.view.inputmethod.EditorInfo
 import androidx.annotation.StringRes
 import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.SizeUtils
-import com.itsaky.androidide.editor.R.string
+import org.appdevforall.codeonthego.editor.R.string
 import com.itsaky.androidide.editor.adapters.CompletionListAdapter
 import com.itsaky.androidide.editor.api.IEditor
 import com.itsaky.androidide.editor.api.ILspEditor

@@ -1,0 +1,393 @@
+/*
+ *  This file is part of AndroidIDE.
+ *
+ *  AndroidIDE is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  AndroidIDE is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *   along with AndroidIDE.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+package org.appdevforall.codeonthego.fragments
+
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
+import androidx.core.text.HtmlCompat
+import androidx.fragment.app.viewModels
+import com.google.android.material.progressindicator.LinearProgressIndicator
+import org.appdevforall.codeonthego.R
+import org.appdevforall.codeonthego.activities.MainActivity
+import org.appdevforall.codeonthego.activities.PreferencesActivity
+import com.itsaky.androidide.activities.TerminalActivity
+import org.appdevforall.codeonthego.adapters.MainActionsListAdapter
+import com.itsaky.androidide.app.BaseApplication
+import com.itsaky.androidide.app.BaseIDEActivity
+import com.itsaky.androidide.fragments.BaseFragment
+import org.appdevforall.codeonthego.common.databinding.LayoutDialogProgressBinding
+import org.appdevforall.codeonthego.databinding.FragmentMainBinding
+import org.appdevforall.codeonthego.idetooltips.IDETooltipDatabase
+import org.appdevforall.codeonthego.models.MainScreenAction
+import org.appdevforall.codeonthego.preferences.databinding.LayoutDialogTextInputBinding
+import com.itsaky.androidide.preferences.internal.GITHUB_PAT
+import org.appdevforall.codeonthego.resources.R.string
+import com.itsaky.androidide.tasks.runOnUiThread
+import com.itsaky.androidide.utils.DialogUtils
+import com.itsaky.androidide.utils.Environment
+import org.appdevforall.codeonthego.utils.TooltipUtils
+import com.itsaky.androidide.utils.flashError
+import com.itsaky.androidide.utils.flashSuccess
+import org.appdevforall.codeonthego.viewmodel.MainViewModel
+import com.termux.shared.termux.TermuxConstants.TERMUX_APP.TERMUX_ACTIVITY
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.eclipse.jgit.api.CloneCommand
+import org.eclipse.jgit.api.Git
+import org.eclipse.jgit.lib.ProgressMonitor
+import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider
+import org.slf4j.LoggerFactory
+import java.io.File
+import java.text.MessageFormat
+import java.util.concurrent.CancellationException
+
+class MainFragment : BaseFragment() {
+
+    private val viewModel by viewModels<MainViewModel>(
+        ownerProducer = { requireActivity() })
+    private var binding: FragmentMainBinding? = null
+
+    companion object {
+
+        private val log = LoggerFactory.getLogger(MainFragment::class.java)
+        const val KEY_TOOLTIP_URL = "tooltip_url"
+    }
+
+    private val shareActivityResultLauncher = registerForActivityResult<Intent, ActivityResult>(
+        ActivityResultContracts.StartActivityForResult()
+    ) { //ACTION_SEND always returns RESULT_CANCELLED, ignore it
+        // There are no request codes
+    }
+
+    private val handler: Handler = Handler(Looper.getMainLooper())
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val actions = MainScreenAction.all().also { actions ->
+            val onClick = { action: MainScreenAction, _: View ->
+                when (action.id) {
+                    MainScreenAction.ACTION_CREATE_PROJECT -> showCreateProject()
+                    MainScreenAction.ACTION_OPEN_PROJECT -> pickDirectory()
+                    MainScreenAction.ACTION_DELETE_PROJECT -> pickDirectoryForDeletion()
+                    MainScreenAction.ACTION_CLONE_REPO -> cloneGitRepo()
+                    MainScreenAction.ACTION_OPEN_TERMINAL -> startActivity(
+                        Intent(requireActivity(), TerminalActivity::class.java)
+                    )
+
+                    MainScreenAction.ACTION_PREFERENCES -> gotoPreferences()
+                    MainScreenAction.ACTION_DONATE -> BaseApplication.getBaseInstance()
+                        .openDonationsPage()
+
+                    MainScreenAction.ACTION_DOCS -> BaseApplication.getBaseInstance().openDocs()
+                }
+            }
+            val onLongClick = { action: MainScreenAction, _: View ->
+                performOptionsMenuClick(action)
+                true
+            }
+
+            actions.forEach { action ->
+                action.onClick = onClick
+                action.onLongClick = onLongClick
+
+                if (action.id == MainScreenAction.ACTION_OPEN_TERMINAL) {
+                    action.onLongClick = { _: MainScreenAction, _: View ->
+                        val intent = Intent(requireActivity(), TerminalActivity::class.java).apply {
+                            putExtra(TERMUX_ACTIVITY.EXTRA_FAILSAFE_SESSION, true)
+                        }
+                        startActivity(intent)
+                        true
+                    }
+                }
+            }
+        }
+
+        binding!!.actions.adapter = MainActionsListAdapter(this, actions)
+        binding!!.greetingText.setOnClickListener(View.OnClickListener {
+            TooltipUtils.showWebPage(requireContext(), "file:///android_asset/idetooltips/getstarted_top.html")
+        })
+    }
+
+    // this method will handle the onclick options click
+    private fun performOptionsMenuClick(action: MainScreenAction) {
+        val view = action.view
+        val tag = action.id.toString()
+        CoroutineScope(Dispatchers.IO).launch {
+            val dao = IDETooltipDatabase.getDatabase(requireContext()).idetooltipDao()
+            val item = dao.getTooltip(tag)
+            val buttons = item.buttons
+            withContext((Dispatchers.Main)) {
+                (context?.let { TooltipUtils.showIDETooltip(it, view!!, 0, item.detail, item.summary, buttons) })
+            }
+        }
+    }
+
+    private fun performFeedbackAction(action: MainScreenAction) {
+        val builder = context?.let { it1 -> DialogUtils.newMaterialDialogBuilder(it1) }
+        builder?.let { builder ->
+            builder.setTitle("Alert!")
+                .setMessage(
+                    HtmlCompat.fromHtml(
+                        getString(R.string.feedback_warning),
+                        HtmlCompat.FROM_HTML_MODE_COMPACT
+                    )
+                )
+                .setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.dismiss() }
+                .setPositiveButton(android.R.string.ok) { dialog, _ ->
+                    run {
+                        val stackTrace =
+                            Exception().stackTrace.asList().toString().replace(",", "\n")
+                        val sb = StringBuilder(resources.getString(R.string.feedback_message))
+                        sb.append("\n\n\n")
+                        sb.append("-------------stack trace----------\n")
+                        sb.append(stackTrace)
+                        val feedbackIntent = Intent(Intent.ACTION_SEND)
+                        val subject = MessageFormat.format(
+                            resources.getString(R.string.feedback_subject),
+                            "Main"
+                        )
+                        /*To send an email you need to specify mailto: as URI using setData() method
+                               and data type will be to text/plain using setType() method*/
+                        feedbackIntent.data = Uri.parse("mailto:")
+                        feedbackIntent.type = "text/plain"
+                        feedbackIntent.putExtra(
+                            Intent.EXTRA_EMAIL,
+                            arrayOf("feedback@appdevforall.com")
+                        )
+                        feedbackIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
+                        feedbackIntent.putExtra(Intent.EXTRA_TEXT, sb.toString())
+                        shareActivityResultLauncher.launch(feedbackIntent)
+                        dialog.dismiss()
+                    }
+                }
+                .create()
+                .show()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
+    private fun pickDirectory() {
+        pickDirectory(this::openProject)
+    }
+
+    private fun pickDirectoryForDeletion() {
+        pickDirectory(this::deleteProject)
+    }
+
+    private fun showCreateProject() {
+        viewModel.setScreen(MainViewModel.SCREEN_TEMPLATE_LIST)
+    }
+
+    fun openProject(root: File) {
+        (requireActivity() as MainActivity).openProject(root)
+    }
+
+    fun deleteProject(root: File) {
+        (requireActivity() as MainActivity).deleteProject(root)
+    }
+
+    private fun cloneGitRepo() {
+        val builder = DialogUtils.newMaterialDialogBuilder(requireContext())
+        val binding = LayoutDialogTextInputBinding.inflate(layoutInflater)
+        binding.name.setHint(string.git_clone_repo_url)
+
+        builder.setView(binding.root)
+        builder.setTitle(string.git_clone_repo)
+        builder.setCancelable(true)
+        builder.setPositiveButton(string.git_clone) { dialog, _ ->
+            dialog.dismiss()
+            val url = binding.name.editText?.text?.toString()
+            doClone(url)
+        }
+        builder.setNegativeButton(android.R.string.cancel, null)
+        builder.show()
+    }
+
+    private fun doClone(repo: String?) {
+        if (repo.isNullOrBlank()) {
+            log.warn("Unable to clone repo. Invalid repo URL : {}'", repo)
+            return
+        }
+
+        var url = repo.trim()
+        if (!url.endsWith(".git")) {
+            url += ".git"
+        }
+
+        val builder = DialogUtils.newMaterialDialogBuilder(requireContext())
+        val binding = LayoutDialogProgressBinding.inflate(layoutInflater)
+
+        binding.message.visibility = View.VISIBLE
+
+        builder.setTitle(string.git_clone_in_progress)
+        builder.setMessage(url)
+        builder.setView(binding.root)
+        builder.setCancelable(false)
+
+        val prefs = BaseApplication.getBaseInstance().prefManager
+        val repoName = url.substringAfterLast('/').substringBeforeLast(".git")
+        val targetDir = File(Environment.PROJECTS_DIR, repoName)
+        if (targetDir.exists()) {
+            showCloneDirExistsError(targetDir)
+            return
+        }
+
+        val progress = GitCloneProgressMonitor(binding.progress, binding.message)
+        val coroutineScope =
+            (activity as? BaseIDEActivity?)?.activityScope ?: viewLifecycleScope
+
+        var getDialog: Function0<AlertDialog?>? = null
+
+        val cloneJob = coroutineScope.launch(Dispatchers.IO) {
+
+            val git = try {
+                val cmd: CloneCommand = Git.cloneRepository()
+                cmd
+                    .setURI(url)
+                    .setDirectory(targetDir)
+                    .setProgressMonitor(progress)
+                val token = prefs.getString(GITHUB_PAT, "")
+                //error is caught in showCloneError
+                if (!token.isNullOrBlank()) {
+                    cmd.setCredentialsProvider(
+                        UsernamePasswordCredentialsProvider(
+                            "<token>",
+                            token
+                        )
+                    )
+                }
+                cmd.call()
+            } catch (err: Throwable) {
+                if (!progress.isCancelled) {
+                    err.printStackTrace()
+                    withContext(Dispatchers.Main) {
+                        getDialog?.invoke()?.also { if (it.isShowing) it.dismiss() }
+                        showCloneError(err)
+                    }
+                }
+                null
+            }
+
+            try {
+                git?.close()
+            } finally {
+                val success = git != null
+                withContext(Dispatchers.Main) {
+                    getDialog?.invoke()?.also { dialog ->
+                        if (dialog.isShowing) dialog.dismiss()
+                        if (success) flashSuccess(string.git_clone_success)
+                    }
+                }
+            }
+        }
+
+        builder.setPositiveButton(android.R.string.cancel) { iface, _ ->
+            iface.dismiss()
+            progress.cancel()
+            cloneJob.cancel(CancellationException("Cancelled by user"))
+        }
+
+        val dialog = builder.show()
+        getDialog = { dialog }
+    }
+
+    private fun showCloneDirExistsError(targetDir: File) {
+        val builder = context?.let { AlertDialog.Builder(it) }
+        builder?.setTitle(string.title_warning)
+        builder?.setMessage(string.git_clone_dir_exists)
+        builder?.setPositiveButton(android.R.string.ok) { _, _ -> targetDir.deleteRecursively() }
+        builder?.setNegativeButton(android.R.string.cancel) { dlg, _ -> dlg.dismiss() }
+        builder?.show()
+    }
+
+    private fun showCloneError(error: Throwable?) {
+        if (error == null) {
+            flashError(string.git_clone_failed)
+            return
+        }
+
+        val builder = DialogUtils.newMaterialDialogBuilder(requireContext())
+        builder.setTitle(string.git_clone_failed)
+        builder.setMessage(error.localizedMessage)
+        builder.setPositiveButton(android.R.string.ok, null)
+        builder.show()
+    }
+
+    private fun gotoPreferences() {
+        startActivity(Intent(requireActivity(), PreferencesActivity::class.java))
+    }
+
+    // TODO(itsaky) : Improve this implementation
+    class GitCloneProgressMonitor(
+        val progress: LinearProgressIndicator,
+        val message: TextView
+    ) : ProgressMonitor {
+
+        private var cancelled = false
+
+        fun cancel() {
+            cancelled = true
+        }
+
+        override fun start(totalTasks: Int) {
+            runOnUiThread { progress.max = totalTasks }
+        }
+
+        override fun beginTask(title: String?, totalWork: Int) {
+            runOnUiThread { message.text = title }
+        }
+
+        override fun update(completed: Int) {
+            runOnUiThread { progress.progress = completed }
+        }
+
+        override fun showDuration(enabled: Boolean) {
+            // no-op
+        }
+
+        override fun endTask() {}
+
+        override fun isCancelled(): Boolean {
+            return cancelled || Thread.currentThread().isInterrupted
+        }
+    }
+}

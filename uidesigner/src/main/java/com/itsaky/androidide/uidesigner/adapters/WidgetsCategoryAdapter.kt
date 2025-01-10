@@ -22,7 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.itsaky.androidide.uidesigner.adapters.WidgetsCategoryAdapter.VH
-import com.itsaky.androidide.uidesigner.databinding.LayoutUiWidgetsCategoryBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.LayoutUiWidgetsCategoryBinding
 import com.itsaky.androidide.uidesigner.models.UiWidgetCategory
 import com.itsaky.androidide.uidesigner.viewmodel.WorkspaceViewModel
 

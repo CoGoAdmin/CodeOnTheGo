@@ -23,6 +23,7 @@ import android.graphics.PorterDuffColorFilter
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
 import com.itsaky.androidide.utils.resolveAttr
+import org.appdevforall.codeonthego.preferences.R
 
 /**
  * Base class for preferences.

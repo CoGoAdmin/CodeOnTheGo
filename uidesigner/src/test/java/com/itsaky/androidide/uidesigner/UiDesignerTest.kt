@@ -26,7 +26,7 @@ import com.itsaky.androidide.inflater.internal.LayoutFile
 import com.itsaky.androidide.inflater.internal.ViewGroupImpl
 import com.itsaky.androidide.inflater.internal.ViewImpl
 import com.itsaky.androidide.inflater.internal.utils.ViewFactory
-import com.itsaky.androidide.inflater.viewGroup
+import com.itsaky.androidide.inflater.utils.viewGroup
 import com.itsaky.androidide.lookup.Lookup
 import com.itsaky.androidide.uidesigner.utils.UiInflaterComponentFactory
 import org.robolectric.Robolectric

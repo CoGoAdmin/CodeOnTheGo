@@ -24,7 +24,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.itsaky.androidide.fragments.BaseFragment
 import com.itsaky.androidide.uidesigner.adapters.WidgetsCategoryAdapter
-import com.itsaky.androidide.uidesigner.databinding.FragmentUiWidgetsBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.FragmentUiWidgetsBinding
 import com.itsaky.androidide.uidesigner.utils.Widgets
 import com.itsaky.androidide.uidesigner.viewmodel.WorkspaceViewModel
 

@@ -20,8 +20,8 @@ package com.itsaky.androidide.uidesigner.fragments
 import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
 import com.itsaky.androidide.inflater.IViewGroup
-import com.itsaky.androidide.inflater.viewGroup
-import com.itsaky.androidide.uidesigner.R
+import com.itsaky.androidide.inflater.utils.viewGroup
+import org.appdevforall.codeonthego.uidesigner.R
 import com.itsaky.androidide.uidesigner.models.PlaceholderView
 import com.itsaky.androidide.uidesigner.undo.ViewAddedAction
 import com.itsaky.androidide.uidesigner.undo.ViewMovedAction

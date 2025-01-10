@@ -15,9 +15,10 @@
  *   along with AndroidIDE.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.itsaky.androidide.inflater
+package com.itsaky.androidide.inflater.utils
 
 import android.view.ViewGroup
+import com.itsaky.androidide.inflater.IViewGroup
 
 /** Helper extension property which casts [IView.view] to [ViewGroup]. */
 val IViewGroup.viewGroup: ViewGroup

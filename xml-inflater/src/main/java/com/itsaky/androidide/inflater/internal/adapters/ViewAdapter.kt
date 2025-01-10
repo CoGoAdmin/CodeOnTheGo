@@ -62,7 +62,7 @@ import com.itsaky.androidide.inflater.IViewAdapter
 import com.itsaky.androidide.inflater.internal.IncludeView
 import com.itsaky.androidide.inflater.models.UiWidget
 import com.itsaky.androidide.inflater.utils.newAttribute
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 
 /**
  * Attribute adapter for [View].

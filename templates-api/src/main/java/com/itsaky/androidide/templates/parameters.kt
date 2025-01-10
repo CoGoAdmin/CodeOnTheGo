@@ -24,7 +24,8 @@ import com.itsaky.androidide.templates.Language.Java
 import com.itsaky.androidide.templates.Language.Kotlin
 import com.itsaky.androidide.templates.ParameterConstraint.NONEMPTY
 import com.itsaky.androidide.templates.ParameterConstraint.PACKAGE
-import com.itsaky.androidide.templates.R.string
+import org.appdevforall.codeonthego.templates.R
+import org.appdevforall.codeonthego.templates.R.string
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.withLock
 

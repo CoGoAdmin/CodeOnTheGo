@@ -23,8 +23,8 @@ import androidx.fragment.app.Fragment
 import com.itsaky.androidide.actions.ActionData
 import com.itsaky.androidide.actions.hasRequiredData
 import com.itsaky.androidide.actions.markInvisible
-import com.itsaky.androidide.uidesigner.R
-import com.itsaky.androidide.uidesigner.R.string
+import org.appdevforall.codeonthego.uidesigner.R
+import org.appdevforall.codeonthego.uidesigner.R.string
 
 /**
  * Open the drawers which contains the layout hierarchy.

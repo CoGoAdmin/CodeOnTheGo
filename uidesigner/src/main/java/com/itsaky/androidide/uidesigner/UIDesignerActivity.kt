@@ -36,11 +36,12 @@ import com.itsaky.androidide.actions.FillMenuParams
 import com.itsaky.androidide.app.BaseIDEActivity
 import com.itsaky.androidide.uidesigner.actions.clearUiDesignerActions
 import com.itsaky.androidide.uidesigner.actions.registerUiDesignerActions
-import com.itsaky.androidide.uidesigner.databinding.ActivityUiDesignerBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.ActivityUiDesignerBinding
 import com.itsaky.androidide.uidesigner.fragments.DesignerWorkspaceFragment
 import com.itsaky.androidide.uidesigner.utils.ViewToXml
 import com.itsaky.androidide.uidesigner.viewmodel.WorkspaceViewModel
 import com.itsaky.androidide.utils.flashError
+import org.appdevforall.codeonthego.uidesigner.R
 import org.slf4j.LoggerFactory
 import java.io.File
 

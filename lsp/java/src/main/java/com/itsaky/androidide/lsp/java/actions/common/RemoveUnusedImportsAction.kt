@@ -7,7 +7,7 @@ import com.itsaky.androidide.actions.hasRequiredData
 import com.itsaky.androidide.actions.markInvisible
 import com.itsaky.androidide.actions.requireEditor
 import com.itsaky.androidide.lsp.java.actions.BaseJavaCodeAction
-import com.itsaky.androidide.resources.R.string
+import org.appdevforall.codeonthego.resources.R.string
 import io.github.rosemoe.sora.widget.CodeEditor
 import org.slf4j.LoggerFactory
 

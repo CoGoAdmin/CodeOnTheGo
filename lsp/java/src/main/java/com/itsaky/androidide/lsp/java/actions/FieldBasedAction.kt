@@ -27,7 +27,7 @@ import com.itsaky.androidide.lsp.java.JavaCompilerProvider
 import com.itsaky.androidide.lsp.java.compiler.CompileTask
 import com.itsaky.androidide.lsp.java.visitors.FindTypeDeclarationAt
 import com.itsaky.androidide.projects.IProjectManager
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 import com.itsaky.androidide.utils.flashInfo
 import io.github.rosemoe.sora.widget.CodeEditor
 import jdkx.lang.model.element.Modifier.STATIC

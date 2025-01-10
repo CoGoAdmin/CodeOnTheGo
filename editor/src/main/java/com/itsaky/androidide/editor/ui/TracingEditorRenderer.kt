@@ -24,7 +24,7 @@ import android.graphics.RenderNode
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.collection.MutableIntList
-import com.itsaky.androidide.editor.BuildConfig
+import org.appdevforall.codeonthego.editor.BuildConfig
 import io.github.rosemoe.sora.lang.styling.CodeBlock
 import io.github.rosemoe.sora.lang.styling.Spans
 import io.github.rosemoe.sora.text.ContentLine

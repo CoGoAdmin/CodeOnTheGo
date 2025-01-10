@@ -23,10 +23,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.itsaky.androidide.inflater.IAttribute
 import com.itsaky.androidide.inflater.IView.SingleAttributeChangeListener
-import com.itsaky.androidide.uidesigner.R
+import org.appdevforall.codeonthego.uidesigner.R
 import com.itsaky.androidide.uidesigner.adapters.ViewAttrListAdapter.VH
-import com.itsaky.androidide.uidesigner.databinding.LayoutViewattrItemBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.LayoutViewattrItemBinding
 import com.itsaky.androidide.uidesigner.models.UiAttribute
 import com.itsaky.androidide.uidesigner.viewmodel.WorkspaceViewModel
 import com.itsaky.androidide.utils.DialogUtils
@@ -38,10 +39,10 @@ import com.itsaky.androidide.utils.DialogUtils
  * @author Akash Yadav
  */
 internal class ViewAttrListAdapter(
-  attributes: List<com.itsaky.androidide.inflater.IAttribute>,
+  attributes: List<IAttribute>,
   private val viewModel: WorkspaceViewModel?,
-  private val onDeleteAttr: (com.itsaky.androidide.inflater.IAttribute) -> Boolean,
-  private val onClick: (com.itsaky.androidide.inflater.IAttribute) -> Unit
+  private val onDeleteAttr: (IAttribute) -> Boolean,
+  private val onClick: (IAttribute) -> Unit
 ) : RecyclerView.Adapter<VH>() {
 
   private val attributes = attributes.sortedBy { it.name }.toMutableList()
@@ -77,7 +78,7 @@ internal class ViewAttrListAdapter(
       val viewModel = this.viewModel ?: return@setOnClickListener
       val attrUpdateListener =
         object : SingleAttributeChangeListener() {
-          override fun onAttributeUpdated(view: com.itsaky.androidide.inflater.IView, attribute: com.itsaky.androidide.inflater.IAttribute, oldValue: String) {
+          override fun onAttributeUpdated(view: com.itsaky.androidide.inflater.IView, attribute: IAttribute, oldValue: String) {
             binding.attrValue.text = attribute.value
           }
         }

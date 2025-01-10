@@ -20,7 +20,7 @@ package com.itsaky.androidide.uidesigner.actions
 import android.content.Context
 import androidx.core.content.ContextCompat
 import com.itsaky.androidide.actions.ActionData
-import com.itsaky.androidide.uidesigner.R
+import org.appdevforall.codeonthego.uidesigner.R
 
 /**
  * Redo action for UI Designer.

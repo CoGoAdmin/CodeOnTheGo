@@ -19,7 +19,7 @@ package com.itsaky.androidide.lsp.java.actions.common
 import com.itsaky.androidide.actions.ActionData
 import com.itsaky.androidide.actions.requireEditor
 import com.itsaky.androidide.lsp.java.actions.BaseJavaCodeAction
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 
 /** @author Akash Yadav */
 class UncommentAction : BaseJavaCodeAction() {

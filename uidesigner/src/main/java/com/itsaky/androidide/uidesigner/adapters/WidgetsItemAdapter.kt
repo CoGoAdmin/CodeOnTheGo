@@ -23,7 +23,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.itsaky.androidide.inflater.models.UiWidget
 import com.itsaky.androidide.uidesigner.adapters.WidgetsItemAdapter.VH
-import com.itsaky.androidide.uidesigner.databinding.LayoutUiWidgetsItemBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.LayoutUiWidgetsItemBinding
 import com.itsaky.androidide.uidesigner.drag.WidgetDragShadowBuilder
 import com.itsaky.androidide.uidesigner.fragments.DesignerWorkspaceFragment
 import com.itsaky.androidide.uidesigner.viewmodel.WorkspaceViewModel

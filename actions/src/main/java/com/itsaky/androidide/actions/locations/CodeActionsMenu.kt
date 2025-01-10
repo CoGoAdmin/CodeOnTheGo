@@ -23,7 +23,7 @@ import androidx.core.content.ContextCompat
 import com.itsaky.androidide.actions.ActionData
 import com.itsaky.androidide.actions.ActionItem
 import com.itsaky.androidide.actions.ActionMenu
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 
 /** @author Akash Yadav */
 object CodeActionsMenu : ActionMenu {

@@ -22,7 +22,7 @@ import com.itsaky.androidide.templates.base.AndroidModuleTemplateBuilder
 import com.itsaky.androidide.templates.base.modules.android.defaultAppModule
 import com.itsaky.androidide.templates.base.util.AndroidModuleResManager.ResourceType.LAYOUT
 import com.itsaky.androidide.templates.base.util.SourceWriter
-import com.itsaky.androidide.templates.impl.R
+import org.appdevforall.codeonthego.templates.impl.R
 import com.itsaky.androidide.templates.impl.base.createRecipe
 import com.itsaky.androidide.templates.impl.base.emptyThemesAndColors
 import com.itsaky.androidide.templates.impl.base.writeMainActivity

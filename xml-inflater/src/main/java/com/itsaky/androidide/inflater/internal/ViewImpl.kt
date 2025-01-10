@@ -29,7 +29,7 @@ import com.itsaky.androidide.inflater.internal.utils.simpleName
 import com.itsaky.androidide.inflater.internal.utils.tagName
 import com.itsaky.androidide.inflater.utils.newAttribute
 import com.itsaky.androidide.inflater.viewAdapter
-import com.itsaky.androidide.resources.R.drawable
+import org.appdevforall.codeonthego.resources.R.drawable
 import org.slf4j.LoggerFactory
 
 open class ViewImpl

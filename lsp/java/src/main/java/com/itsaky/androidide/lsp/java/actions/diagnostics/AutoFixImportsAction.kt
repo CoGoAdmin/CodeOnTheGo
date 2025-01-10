@@ -20,7 +20,7 @@ package com.itsaky.androidide.lsp.java.actions.diagnostics
 import com.itsaky.androidide.actions.ActionData
 import com.itsaky.androidide.actions.requireContext
 import com.itsaky.androidide.actions.requirePath
-import com.itsaky.androidide.lsp.java.R
+import org.appdevforall.codeonthego.lsp.java.R
 import com.itsaky.androidide.lsp.java.actions.BaseJavaCodeAction
 import com.itsaky.androidide.lsp.java.compiler.CompileTask
 import com.itsaky.androidide.lsp.java.models.DiagnosticCode

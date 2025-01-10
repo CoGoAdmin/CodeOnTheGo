@@ -21,7 +21,7 @@ import android.view.DragEvent
 import android.view.View
 import com.itsaky.androidide.inflater.IView
 import com.itsaky.androidide.inflater.models.UiWidget
-import com.itsaky.androidide.inflater.viewGroup
+import com.itsaky.androidide.inflater.utils.viewGroup
 import com.itsaky.androidide.uidesigner.fragments.DesignerWorkspaceFragment.Companion.DRAGGING_WIDGET_MIME
 import com.itsaky.androidide.uidesigner.models.UiView
 import com.itsaky.androidide.uidesigner.models.UiViewGroup

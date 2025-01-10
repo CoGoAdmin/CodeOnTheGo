@@ -25,7 +25,7 @@ import com.itsaky.androidide.inflater.internal.ViewGroupImpl
 import com.itsaky.androidide.inflater.internal.ViewImpl
 import com.itsaky.androidide.lsp.xml.utils.XMLBuilder
 import com.itsaky.androidide.tasks.executeAsyncProvideError
-import com.itsaky.androidide.uidesigner.R
+import org.appdevforall.codeonthego.uidesigner.R
 import com.itsaky.androidide.utils.DialogUtils
 import org.slf4j.LoggerFactory
 import java.util.concurrent.CompletableFuture

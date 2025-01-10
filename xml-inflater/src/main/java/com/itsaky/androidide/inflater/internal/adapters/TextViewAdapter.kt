@@ -29,7 +29,7 @@ import com.itsaky.androidide.annotations.uidesigner.IncludeInDesigner.Group.WIDG
 import com.itsaky.androidide.inflater.AttributeHandlerScope
 import com.itsaky.androidide.inflater.IView
 import com.itsaky.androidide.inflater.models.UiWidget
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 import java.util.regex.Pattern
 
 /**

@@ -33,6 +33,8 @@ import android.os.IBinder;
 import android.widget.Toast;
 import com.itsaky.androidide.logsender.utils.Logger;
 
+import org.appdevforall.codeonthego.logsender.R;
+
 /**
  * A {@link Service} which runs in the background and sends logs to AndroidIDE.
  *

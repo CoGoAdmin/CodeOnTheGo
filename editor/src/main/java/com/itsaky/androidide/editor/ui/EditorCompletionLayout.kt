@@ -21,7 +21,7 @@ import android.graphics.drawable.GradientDrawable
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
 import androidx.core.view.updateLayoutParams
-import com.itsaky.androidide.editor.R
+import org.appdevforall.codeonthego.editor.R
 import io.github.rosemoe.sora.widget.component.DefaultCompletionLayout
 import io.github.rosemoe.sora.widget.schemes.EditorColorScheme
 

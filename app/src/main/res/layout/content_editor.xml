@@ -101,7 +101,7 @@
 
   </ViewFlipper>
 
-  <com.itsaky.androidide.ui.EditorBottomSheet
+  <org.appdevforall.codeonthego.ui.EditorBottomSheet
     android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

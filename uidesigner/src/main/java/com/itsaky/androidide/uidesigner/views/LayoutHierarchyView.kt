@@ -32,8 +32,8 @@ import androidx.core.view.updatePaddingRelative
 import com.blankj.utilcode.util.SizeUtils
 import com.google.android.material.textview.MaterialTextView
 import com.itsaky.androidide.inflater.IView
-import com.itsaky.androidide.uidesigner.R
 import com.itsaky.androidide.utils.resolveAttr
+import org.appdevforall.codeonthego.uidesigner.R
 
 /**
  * A view that shows component hierarchy in the UI Designer.

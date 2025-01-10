@@ -24,7 +24,7 @@ import androidx.fragment.app.Fragment
 import com.itsaky.androidide.actions.ActionData
 import com.itsaky.androidide.actions.hasRequiredData
 import com.itsaky.androidide.actions.markInvisible
-import com.itsaky.androidide.uidesigner.R
+import org.appdevforall.codeonthego.uidesigner.R
 import com.itsaky.androidide.uidesigner.ShowXmlActivity
 import com.itsaky.androidide.uidesigner.utils.ViewToXml
 import com.itsaky.androidide.utils.flashError

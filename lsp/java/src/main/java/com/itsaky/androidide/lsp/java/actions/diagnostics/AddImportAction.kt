@@ -32,7 +32,7 @@ import com.itsaky.androidide.lsp.java.rewrite.Rewrite
 import com.itsaky.androidide.lsp.models.CodeActionItem
 import com.itsaky.androidide.lsp.models.DiagnosticItem
 import com.itsaky.androidide.projects.IProjectManager
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 import jdkx.tools.Diagnostic
 import jdkx.tools.JavaFileObject
 import org.slf4j.LoggerFactory

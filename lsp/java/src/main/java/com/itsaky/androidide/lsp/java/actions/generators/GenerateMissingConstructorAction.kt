@@ -27,7 +27,7 @@ import com.itsaky.androidide.lsp.java.models.DiagnosticCode
 import com.itsaky.androidide.lsp.java.rewrite.GenerateRecordConstructor
 import com.itsaky.androidide.lsp.java.utils.CodeActionUtils
 import com.itsaky.androidide.projects.IProjectManager
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 import org.slf4j.LoggerFactory
 
 /** @author Akash Yadav */

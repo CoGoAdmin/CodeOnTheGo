@@ -8,7 +8,7 @@
   android:background="?attr/colorSurfaceDim"
   tools:ignore="DuplicateIncludedIds">
 
-  <com.itsaky.androidide.ui.SwipeRevealLayout
+  <org.appdevforall.codeonthego.ui.SwipeRevealLayout
     android:id="@+id/swipe_reveal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,7 +33,7 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-  </com.itsaky.androidide.ui.SwipeRevealLayout>
+  </org.appdevforall.codeonthego.ui.SwipeRevealLayout>
 
   <com.google.android.material.navigation.NavigationView
     android:id="@+id/startNav"
@@ -44,7 +44,7 @@
 
     <androidx.fragment.app.FragmentContainerView
       android:id="@+id/drawer_sidebar"
-      android:name="com.itsaky.androidide.fragments.sidebar.EditorSidebarFragment"
+      android:name="org.appdevforall.codeonthego.fragments.sidebar.EditorSidebarFragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent" />
 

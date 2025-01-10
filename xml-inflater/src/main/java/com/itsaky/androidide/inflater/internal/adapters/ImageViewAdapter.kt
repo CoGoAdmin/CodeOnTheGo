@@ -32,9 +32,9 @@ import com.itsaky.androidide.annotations.uidesigner.IncludeInDesigner.Group.WIDG
 import com.itsaky.androidide.inflater.AttributeHandlerScope
 import com.itsaky.androidide.inflater.IView
 import com.itsaky.androidide.inflater.models.UiWidget
-import com.itsaky.androidide.resources.R
-import com.itsaky.androidide.resources.R.drawable
-import com.itsaky.androidide.resources.R.string
+import org.appdevforall.codeonthego.resources.R
+import org.appdevforall.codeonthego.resources.R.drawable
+import org.appdevforall.codeonthego.resources.R.string
 
 /**
  * Attribute adpater [ImageView]s.

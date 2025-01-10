@@ -29,7 +29,7 @@ import com.itsaky.androidide.lsp.api.ILanguageClient
 import com.itsaky.androidide.lsp.api.ILanguageServerRegistry
 import com.itsaky.androidide.lsp.java.JavaCompilerProvider
 import com.itsaky.androidide.lsp.java.JavaLanguageServer
-import com.itsaky.androidide.lsp.java.R
+import org.appdevforall.codeonthego.lsp.java.R
 import com.itsaky.androidide.lsp.java.compiler.JavaCompilerService
 import com.itsaky.androidide.lsp.java.rewrite.Rewrite
 import com.itsaky.androidide.projects.IProjectManager

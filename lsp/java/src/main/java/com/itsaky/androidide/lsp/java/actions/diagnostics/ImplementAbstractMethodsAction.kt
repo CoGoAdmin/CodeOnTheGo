@@ -23,7 +23,7 @@ import com.itsaky.androidide.javac.services.util.JavaDiagnosticUtils
 import com.itsaky.androidide.lsp.java.actions.BaseJavaCodeAction
 import com.itsaky.androidide.lsp.java.models.DiagnosticCode
 import com.itsaky.androidide.lsp.java.rewrite.ImplementAbstractMethods
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 import jdkx.tools.Diagnostic
 import jdkx.tools.JavaFileObject
 import org.slf4j.LoggerFactory

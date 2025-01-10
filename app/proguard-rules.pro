@@ -67,9 +67,9 @@
 -keep class com.itsaky.androidide.utils.DialogUtils {  public <methods>; }
 
 # APK Metadata
--keep class com.itsaky.androidide.models.ApkMetadata { *; }
--keep class com.itsaky.androidide.models.ArtifactType { *; }
--keep class com.itsaky.androidide.models.MetadataElement { *; }
+-keep class org.appdevforall.codeonthego.models.ApkMetadata { *; }
+-keep class org.appdevforall.codeonthego.models.ArtifactType { *; }
+-keep class org.appdevforall.codeonthego.models.MetadataElement { *; }
 
 # Parcelable
 -keepclassmembers class * implements android.os.Parcelable {
@@ -124,6 +124,6 @@
 }
 
 ## Contributor models - deserialized with GSON
--keep class * implements com.itsaky.androidide.contributors.Contributor {
+-keep class * implements org.appdevforall.codeonthego.contributors.Contributor {
   *;
 }

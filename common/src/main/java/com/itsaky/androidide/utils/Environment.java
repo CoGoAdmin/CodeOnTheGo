@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 public final class Environment {
 
   public static final String PROJECTS_FOLDER = "AndroidIDEProjects";
-  public static final String DEFAULT_ROOT = "/data/data/com.itsaky.androidide/files";
+  public static final String DEFAULT_ROOT = "/data/data/org.appdevforall.codeonthego/files";
   public static final String DEFAULT_HOME = DEFAULT_ROOT + "/home";
   private static final String DEFAULT_ANDROID_HOME = DEFAULT_HOME + "/android-sdk";
   public static final String DEFAULT_PREFIX = DEFAULT_ROOT + "/usr";

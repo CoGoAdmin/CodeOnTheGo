@@ -25,8 +25,8 @@ import androidx.core.provider.DocumentsContractCompat.buildDocumentUriUsingTree
 import androidx.core.provider.DocumentsContractCompat.getTreeDocumentId
 import androidx.documentfile.provider.DocumentFile
 import androidx.fragment.app.Fragment
-import com.itsaky.androidide.common.R
-import com.itsaky.androidide.resources.R.string
+import org.appdevforall.codeonthego.common.R
+import org.appdevforall.codeonthego.resources.R.string
 import com.itsaky.androidide.utils.flashError
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope

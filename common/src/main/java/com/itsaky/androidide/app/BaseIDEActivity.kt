@@ -22,13 +22,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.itsaky.androidide.common.R
 import com.itsaky.androidide.tasks.cancelIfActive
 import com.itsaky.androidide.ui.themes.IThemeManager
 import com.itsaky.androidide.utils.OrientationUtilities
 import com.itsaky.androidide.utils.resolveAttr
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import org.appdevforall.codeonthego.common.R
 import org.greenrobot.eventbus.EventBus
 
 abstract class BaseIDEActivity : AppCompatActivity() {

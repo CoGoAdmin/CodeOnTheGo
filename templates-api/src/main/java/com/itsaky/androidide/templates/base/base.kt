@@ -37,7 +37,6 @@ import com.itsaky.androidide.templates.ProjectTemplate
 import com.itsaky.androidide.templates.ProjectTemplateData
 import com.itsaky.androidide.templates.ProjectVersionData
 import com.itsaky.androidide.templates.ProjectVersionLocalData
-import com.itsaky.androidide.templates.R
 import com.itsaky.androidide.templates.SpinnerWidget
 import com.itsaky.androidide.templates.StringParameter
 import com.itsaky.androidide.templates.TextFieldWidget
@@ -52,6 +51,7 @@ import com.itsaky.androidide.templates.stringParameter
 import com.itsaky.androidide.templates.useKtsParameter
 import com.itsaky.androidide.utils.AndroidUtils
 import com.itsaky.androidide.utils.Environment
+import org.appdevforall.codeonthego.templates.R
 import java.io.File
 
 typealias AndroidModuleTemplateConfigurator = AndroidModuleTemplateBuilder.() -> Unit

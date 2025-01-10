@@ -28,10 +28,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.itsaky.androidide.inflater.internal.NamespaceImpl
 import com.itsaky.androidide.inflater.internal.ViewImpl
 import com.itsaky.androidide.inflater.utils.newAttribute
-import com.itsaky.androidide.uidesigner.R
+import org.appdevforall.codeonthego.uidesigner.R
 import com.itsaky.androidide.uidesigner.adapters.ViewAttrListAdapter
-import com.itsaky.androidide.uidesigner.databinding.LayoutViewInfoBinding
-import com.itsaky.androidide.uidesigner.databinding.LayoutViewInfoHeaderBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.LayoutViewInfoBinding
+import org.appdevforall.codeonthego.uidesigner.databinding.LayoutViewInfoHeaderBinding
 import com.itsaky.androidide.uidesigner.models.UiAttribute
 import com.itsaky.androidide.uidesigner.viewmodel.WorkspaceViewModel
 

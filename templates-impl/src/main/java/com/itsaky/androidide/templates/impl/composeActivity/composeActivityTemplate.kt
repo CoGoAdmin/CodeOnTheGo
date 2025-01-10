@@ -22,7 +22,7 @@ import com.itsaky.androidide.templates.ProjectVersionData
 import com.itsaky.androidide.templates.base.composeDependencies
 import com.itsaky.androidide.templates.base.modules.android.defaultAppModule
 import com.itsaky.androidide.templates.base.util.AndroidModuleResManager.ResourceType.VALUES
-import com.itsaky.androidide.templates.impl.R
+import org.appdevforall.codeonthego.templates.impl.R
 import com.itsaky.androidide.templates.impl.base.createRecipe
 import com.itsaky.androidide.templates.impl.base.writeMainActivity
 import com.itsaky.androidide.templates.impl.baseProjectImpl

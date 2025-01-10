@@ -27,9 +27,9 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.FrameLayout
 import android.widget.PopupMenu
-import com.itsaky.androidide.editor.databinding.LayoutFindInFileBinding
+import org.appdevforall.codeonthego.editor.databinding.LayoutFindInFileBinding
 import com.itsaky.androidide.editor.ui.ReplaceAction.doReplace
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 import com.itsaky.androidide.utils.SingleTextWatcher
 import io.github.rosemoe.sora.widget.EditorSearcher.SearchOptions
 import java.util.regex.Pattern

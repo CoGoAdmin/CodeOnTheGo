@@ -43,14 +43,14 @@ import com.itsaky.androidide.actions.ActionsRegistry
 import com.itsaky.androidide.actions.ActionsRegistry.Companion.getInstance
 import com.itsaky.androidide.actions.EditorActionItem
 import com.itsaky.androidide.actions.FillMenuParams
-import com.itsaky.androidide.editor.R.layout
-import com.itsaky.androidide.editor.databinding.LayoutPopupMenuItemBinding
+import org.appdevforall.codeonthego.editor.R.layout
+import org.appdevforall.codeonthego.editor.databinding.LayoutPopupMenuItemBinding
 import com.itsaky.androidide.editor.ui.EditorActionsMenu.ActionsListAdapter.VH
 import com.itsaky.androidide.lsp.api.ILanguageServerRegistry
 import com.itsaky.androidide.lsp.java.JavaLanguageServer
 import com.itsaky.androidide.lsp.models.DiagnosticItem
 import com.itsaky.androidide.lsp.xml.XMLLanguageServer
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 import com.itsaky.androidide.utils.resolveAttr
 import io.github.rosemoe.sora.event.HandleStateChangeEvent
 import io.github.rosemoe.sora.event.ScrollEvent

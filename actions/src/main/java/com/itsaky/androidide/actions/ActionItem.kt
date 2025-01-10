@@ -25,6 +25,7 @@ import android.view.Menu
 import android.view.View
 import androidx.annotation.CallSuper
 import com.itsaky.androidide.utils.resolveAttr
+import org.appdevforall.codeonthego.actions.R
 
 /**
  * An action that can be registered using the [ActionsRegistry]

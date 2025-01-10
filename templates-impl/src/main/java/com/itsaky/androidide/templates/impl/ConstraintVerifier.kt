@@ -29,9 +29,10 @@ import com.itsaky.androidide.templates.ParameterConstraint.MODULE_NAME
 import com.itsaky.androidide.templates.ParameterConstraint.NONEMPTY
 import com.itsaky.androidide.templates.ParameterConstraint.PACKAGE
 import com.itsaky.androidide.templates.base.util.isValidModuleName
-import com.itsaky.androidide.templates.impl.R.string
+import org.appdevforall.codeonthego.templates.impl.R.string
 import com.itsaky.androidide.utils.AndroidUtils
 import jdkx.lang.model.SourceVersion
+import org.appdevforall.codeonthego.templates.impl.R
 import java.io.File
 
 /**

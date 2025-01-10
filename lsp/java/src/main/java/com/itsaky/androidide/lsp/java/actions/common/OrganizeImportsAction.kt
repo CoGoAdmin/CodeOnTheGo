@@ -10,7 +10,7 @@ import com.itsaky.androidide.editor.api.IEditor
 import com.itsaky.androidide.lsp.java.JavaLanguageServer
 import com.itsaky.androidide.lsp.java.actions.BaseJavaCodeAction
 import com.itsaky.androidide.lsp.java.models.JavaServerSettings
-import com.itsaky.androidide.resources.R.string
+import org.appdevforall.codeonthego.resources.R.string
 import io.github.rosemoe.sora.widget.CodeEditor
 import org.slf4j.LoggerFactory
 

@@ -32,7 +32,7 @@ import com.itsaky.androidide.lsp.java.utils.EditHelper
 import com.itsaky.androidide.lsp.java.utils.ShortTypePrinter.NO_PACKAGE
 import com.itsaky.androidide.preferences.utils.indentationString
 import com.itsaky.androidide.projects.IProjectManager
-import com.itsaky.androidide.resources.R.string
+import org.appdevforall.codeonthego.resources.R.string
 import com.itsaky.androidide.utils.flashError
 import io.github.rosemoe.sora.widget.CodeEditor
 import openjdk.source.tree.ClassTree

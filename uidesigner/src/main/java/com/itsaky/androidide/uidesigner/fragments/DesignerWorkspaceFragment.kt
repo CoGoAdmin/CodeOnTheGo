@@ -30,9 +30,8 @@ import com.itsaky.androidide.inflater.IView
 import com.itsaky.androidide.inflater.internal.LayoutFile
 import com.itsaky.androidide.inflater.utils.endParse
 import com.itsaky.androidide.inflater.utils.startParse
-import com.itsaky.androidide.uidesigner.R
+import org.appdevforall.codeonthego.uidesigner.R
 import com.itsaky.androidide.uidesigner.UIDesignerActivity
-import com.itsaky.androidide.uidesigner.databinding.FragmentDesignerWorkspaceBinding
 import com.itsaky.androidide.uidesigner.drag.WidgetDragListener
 import com.itsaky.androidide.uidesigner.drag.WidgetTouchListener
 import com.itsaky.androidide.uidesigner.drawable.UiViewLayeredForeground
@@ -45,6 +44,7 @@ import com.itsaky.androidide.uidesigner.utils.UiLayoutInflater
 import com.itsaky.androidide.uidesigner.utils.bgDesignerView
 import com.itsaky.androidide.uidesigner.utils.layeredForeground
 import com.itsaky.androidide.uidesigner.viewmodel.WorkspaceViewModel
+import org.appdevforall.codeonthego.uidesigner.databinding.FragmentDesignerWorkspaceBinding
 import org.slf4j.LoggerFactory
 import java.io.File
 

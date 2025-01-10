@@ -21,8 +21,8 @@ import android.view.SurfaceView
 import com.itsaky.androidide.annotations.uidesigner.IncludeInDesigner
 import com.itsaky.androidide.annotations.uidesigner.IncludeInDesigner.Group.WIDGETS
 import com.itsaky.androidide.inflater.models.UiWidget
-import com.itsaky.androidide.resources.R.drawable
-import com.itsaky.androidide.resources.R.string
+import org.appdevforall.codeonthego.resources.R.drawable
+import org.appdevforall.codeonthego.resources.R.string
 
 /**
  * Attribute adapter for [SurfaceView].

@@ -76,7 +76,7 @@ interface RecipeExecutor {
 
     /**
      * Copies gradle caches to androidIDE
-     * /data/data/com.itsaky.androidide/files/home/.gradle/caches/modules-2/files-2.1
+     * /data/data/org.appdevforall.codeonthego/files/home/.gradle/caches/modules-2/files-2.1
      * @param gradlePath is a path to source caches, change it in case you will need different
      * Pay attention that due to the way implementation is made, context that is required by
      * updateCaches method is provided implicitly inside the implementation.

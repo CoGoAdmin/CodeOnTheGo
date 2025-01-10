@@ -22,7 +22,7 @@ import android.content.res.Configuration
 import android.util.DisplayMetrics
 import android.view.Surface
 import android.view.WindowManager
-import com.itsaky.androidide.common.R
+import org.appdevforall.codeonthego.common.R
 
 class OrientationUtilities {
 

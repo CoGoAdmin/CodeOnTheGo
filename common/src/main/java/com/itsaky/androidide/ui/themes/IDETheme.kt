@@ -19,7 +19,7 @@ package com.itsaky.androidide.ui.themes
 
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.common.R
 
 /**
  * Themes in AndroidIDE.

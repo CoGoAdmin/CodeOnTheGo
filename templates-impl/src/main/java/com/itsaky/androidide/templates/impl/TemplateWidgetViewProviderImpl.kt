@@ -36,9 +36,9 @@ import com.itsaky.androidide.templates.StringParameter
 import com.itsaky.androidide.templates.TextFieldParameter
 import com.itsaky.androidide.templates.TextFieldWidget
 import com.itsaky.androidide.templates.Widget
-import com.itsaky.androidide.templates.impl.databinding.LayoutCheckboxBinding
-import com.itsaky.androidide.templates.impl.databinding.LayoutSpinnerBinding
-import com.itsaky.androidide.templates.impl.databinding.LayoutTextfieldBinding
+import org.appdevforall.codeonthego.templates.impl.databinding.LayoutCheckboxBinding
+import org.appdevforall.codeonthego.templates.impl.databinding.LayoutSpinnerBinding
+import org.appdevforall.codeonthego.templates.impl.databinding.LayoutTextfieldBinding
 import com.itsaky.androidide.utils.ServiceLoader
 import com.itsaky.androidide.utils.SingleTextWatcher
 

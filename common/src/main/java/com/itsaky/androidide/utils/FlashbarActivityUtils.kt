@@ -31,7 +31,7 @@ import androidx.annotation.StringRes
 import com.blankj.utilcode.util.ThreadUtils
 import com.itsaky.androidide.flashbar.Flashbar
 import com.itsaky.androidide.flashbar.Flashbar.Gravity.TOP
-import com.itsaky.androidide.resources.R
+import org.appdevforall.codeonthego.resources.R
 import com.itsaky.androidide.utils.FlashType.ERROR
 import com.itsaky.androidide.utils.FlashType.INFO
 import com.itsaky.androidide.utils.FlashType.SUCCESS

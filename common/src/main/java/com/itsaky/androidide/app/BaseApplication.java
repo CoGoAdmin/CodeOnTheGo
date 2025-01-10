@@ -22,7 +22,7 @@ import android.content.Intent;
 import android.net.Uri;
 import com.blankj.utilcode.util.ThrowableUtils;
 import com.itsaky.androidide.buildinfo.BuildInfo;
-import com.itsaky.androidide.common.R;
+import org.appdevforall.codeonthego.common.R;
 import com.itsaky.androidide.managers.PreferenceManager;
 import com.itsaky.androidide.managers.ToolsManager;
 import com.itsaky.androidide.utils.Environment;

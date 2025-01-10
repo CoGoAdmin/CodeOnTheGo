@@ -31,7 +31,7 @@ import com.itsaky.androidide.inflater.vectormaster.models.GroupModel;
 import com.itsaky.androidide.inflater.vectormaster.models.PathModel;
 import com.itsaky.androidide.inflater.vectormaster.models.VectorModel;
 import com.itsaky.androidide.inflater.vectormaster.utilities.Utils;
-import com.itsaky.androidide.resources.R;
+import org.appdevforall.codeonthego.resources.R;
 import java.io.IOException;
 import java.util.Stack;
 import org.xmlpull.v1.XmlPullParser;

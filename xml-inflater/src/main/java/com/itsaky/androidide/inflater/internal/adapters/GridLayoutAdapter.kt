@@ -25,8 +25,8 @@ import com.itsaky.androidide.inflater.AttributeHandlerScope
 import com.itsaky.androidide.inflater.IView
 import com.itsaky.androidide.inflater.IViewGroup
 import com.itsaky.androidide.inflater.models.UiWidget
-import com.itsaky.androidide.resources.R.drawable
-import com.itsaky.androidide.resources.R.string
+import org.appdevforall.codeonthego.resources.R.drawable
+import org.appdevforall.codeonthego.resources.R.string
 
 /**
  * Attribute adapter for [GridLayout].
