@@ -2,7 +2,6 @@ package com.itsaky.androidide.tooltip
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.itsaky.androidide.tooltips.ButtonsConverters
 import com.itsaky.androidide.tooltips.ide.IDETooltipDao

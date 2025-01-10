@@ -24,12 +24,12 @@ import com.itsaky.androidide.app.BaseApplication
 import com.itsaky.androidide.app.BaseIDEActivity
 import com.itsaky.androidide.common.databinding.LayoutDialogProgressBinding
 import com.itsaky.androidide.databinding.FragmentMainBinding
-import com.itsaky.androidide.tooltips.ide.IDETooltipDatabase
 import com.itsaky.androidide.models.MainScreenAction
 import com.itsaky.androidide.preferences.databinding.LayoutDialogTextInputBinding
 import com.itsaky.androidide.preferences.internal.GITHUB_PAT
 import com.itsaky.androidide.resources.R.string
 import com.itsaky.androidide.tasks.runOnUiThread
+import com.itsaky.androidide.tooltips.TooltipDatabaseProvider
 import com.itsaky.androidide.utils.DialogUtils
 import com.itsaky.androidide.utils.Environment
 import com.itsaky.androidide.tooltips.TooltipUtils
@@ -130,7 +130,8 @@ class MainFragment : BaseFragment() {
         val view = action.view
         val tag = action.id.toString()
         CoroutineScope(Dispatchers.IO).launch {
-            val dao = IDETooltipDatabase.getDatabase(requireContext()).idetooltipDao()
+            //TODO JMT
+            val dao = TooltipDatabaseProvider.getDatabase(requireContext()).ideTooltipDao()
             val item = dao.getTooltip(tag)
             val buttons = item.buttons
             withContext((Dispatchers.Main)) {
