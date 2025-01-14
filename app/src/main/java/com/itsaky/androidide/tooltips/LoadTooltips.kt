@@ -2,9 +2,6 @@ package com.itsaky.androidide.tooltips
 
 import android.content.Context
 import android.util.Log
-import com.itsaky.androidide.tooltips.ide.IDETooltipItem
-import com.itsaky.androidide.tooltips.java.JavaTooltipItem
-import com.itsaky.androidide.tooltips.kotlin.KotlinTooltipItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -37,7 +34,7 @@ object LoadTooltips {
                     when (category) {
                         "ide" -> {
                             ideDao.insert(
-                                IDETooltipItem(
+                                TooltipItem(
                                     tooltipTag = tag,
                                     summary = summary,
                                     detail = detail,
@@ -47,7 +44,7 @@ object LoadTooltips {
                         }
                         "java" -> {
                             javaDao.insert(
-                                JavaTooltipItem(
+                                TooltipItem(
                                     tooltipTag = tag,
                                     summary = summary,
                                     detail = detail,
@@ -57,7 +54,7 @@ object LoadTooltips {
                         }
                         "kotlin" -> {
                             kotlinDao.insert(
-                                KotlinTooltipItem(
+                                TooltipItem(
                                     tooltipTag = tag,
                                     summary = summary,
                                     detail = detail,

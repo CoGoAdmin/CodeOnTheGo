@@ -43,7 +43,7 @@ import org.slf4j.LoggerFactory
 abstract class TreeSitterLanguage(
   context: Context,
   lang: TSLanguage,
-  private val langType: String
+  public val langType: String
 ) : IDELanguage() {
 
   private lateinit var tsTheme: TsTheme

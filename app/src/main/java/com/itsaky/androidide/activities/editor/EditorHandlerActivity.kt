@@ -48,7 +48,6 @@ import com.itsaky.androidide.editor.schemes.IDEColorSchemeProvider
 import com.itsaky.androidide.editor.ui.IDEEditor
 import com.itsaky.androidide.eventbus.events.editor.DocumentChangeEvent
 import com.itsaky.androidide.eventbus.events.file.FileRenameEvent
-import com.itsaky.androidide.tooltips.ide.IDETooltipItem
 import com.itsaky.androidide.interfaces.IEditorHandler
 import com.itsaky.androidide.models.FileExtension
 import com.itsaky.androidide.models.OpenedFile
@@ -57,6 +56,8 @@ import com.itsaky.androidide.models.Range
 import com.itsaky.androidide.models.SaveResult
 import com.itsaky.androidide.projects.ProjectManagerImpl
 import com.itsaky.androidide.tasks.executeAsync
+import com.itsaky.androidide.tooltips.TooltipDatabaseProvider
+import com.itsaky.androidide.tooltips.TooltipItem
 import com.itsaky.androidide.ui.CodeEditorView
 import com.itsaky.androidide.utils.DialogUtils.newYesNoDialog
 import com.itsaky.androidide.utils.IntentUtils.openImage
@@ -577,9 +578,15 @@ open class EditorHandlerActivity : ProjectHandlerActivity(), IEditorHandler {
         startActivity(intent)
     }
 
-    override suspend fun getTooltipData(word: String): IDETooltipItem? {
+    override suspend fun getTooltipData(context:Context, language:String, word: String): TooltipItem? {
         return withContext(Dispatchers.IO) {
 //            IDEApplication.tooltipDao.getTooltipWord(word)
+          when(language) {
+            "java" -> TooltipDatabaseProvider.getDatabase(context).javaTooltipDao().getTooltip(word)
+            "kt" -> TooltipDatabaseProvider.getDatabase(context).kotlinTooltipDao().getTooltip(word)
+            "ide" -> TooltipDatabaseProvider.getDatabase(context).ideTooltipDao().getTooltip(word)
+            else -> null
+          }
           IDEApplication.idetooltipDao.getTooltip(word)
         }
     }

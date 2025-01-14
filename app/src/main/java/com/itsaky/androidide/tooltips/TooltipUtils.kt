@@ -37,7 +37,6 @@ import com.itsaky.androidide.activities.MainActivity
 import com.itsaky.androidide.fragments.IDETooltipWebviewFragment
 import com.itsaky.androidide.fragments.MainFragment
 import com.itsaky.androidide.tooltips.ide.IDETooltipDatabase
-import com.itsaky.androidide.tooltips.ide.IDETooltipItem
 import io.github.rosemoe.sora.widget.CodeEditor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -166,7 +165,7 @@ object TooltipUtils {
         context: Context,
         editor: CodeEditor,
         level: Int,
-        tooltip: IDETooltipItem?,
+        tooltip: TooltipItem?,
         block: (htmlString: String) -> Unit
     ) {
         val inflater = LayoutInflater.from(context)
@@ -244,7 +243,7 @@ suspend fun dumpIDEDatabase(context: Context, database: IDETooltipDatabase) {
         val records =
             IDETooltipDatabase.getDatabase(context).idetooltipDao().getIDETooltipItems()
         withContext(Dispatchers.Main) {
-            for (item: IDETooltipItem in records) {
+            for (item: TooltipItem in records) {
                 Log.d(
                     "DumpIDEDatabase",
                     "tag = ${item.tooltipTag}\n\tdetail = ${item.detail}\n\tsummary = ${item.summary}"
