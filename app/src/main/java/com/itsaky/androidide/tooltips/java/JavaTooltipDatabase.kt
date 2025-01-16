@@ -23,11 +23,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.itsaky.androidide.tooltips.ButtonsConverters
-import com.itsaky.androidide.tooltips.java.JavaTooltipItem
+import com.itsaky.androidide.tooltips.TooltipItem
 import com.itsaky.androidide.tooltips.java.JavaTooltipDao
 
 // Annotates class to be a Room Database with a table (entity) of the Message class
-@Database(entities = [JavaTooltipItem::class], version = 2, exportSchema = false)
+@Database(entities = [TooltipItem::class], version = 2, exportSchema = false)
 @TypeConverters(ButtonsConverters::class)
 abstract class JavaTooltipDatabase : RoomDatabase() {
     abstract fun javatooltipDao(): JavaTooltipDao

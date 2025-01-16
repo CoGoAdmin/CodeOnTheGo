@@ -15,36 +15,37 @@
  *   along with AndroidIDE.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.itsaky.androidide.idetooltips
+package com.itsaky.androidide.tooltips.ide
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.itsaky.androidide.tooltips.TooltipItem
 
 @Dao
 interface IDETooltipDao {
-  @Query("SELECT * FROM ide_tooltip_table ORDER BY tooltipTag ASC")
-  fun getTooltipItems(): List<IDETooltipItem>
+  @Query("SELECT * FROM TooltipItem ORDER BY tooltipTag ASC")
+  fun getIDETooltipItems(): List<TooltipItem>
 
-  @Query("SELECT tooltipSummary FROM ide_tooltip_table WHERE tooltipTag == :tooltipTag")
+  @Query("SELECT tooltipSummary FROM TooltipItem WHERE tooltipTag == :tooltipTag")
   fun getSummary(tooltipTag : String) : String
 
-  @Query("SELECT tooltipDetail FROM ide_tooltip_table WHERE tooltipTag == :tooltipTag")
+  @Query("SELECT tooltipDetail FROM TooltipItem WHERE tooltipTag == :tooltipTag")
   fun getDetail(tooltipTag : String) : String
 
   //@Query("SELECT tooltipButtons FROM ide_tooltip_table WHERE tooltipTag == :tooltipTag")
   //fun getButtons(tooltipTag: String) : ArrayList<Pair<String, String>>
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  suspend fun insert(IDETooltipItem: IDETooltipItem)
+  suspend fun insert(tooltipItem: TooltipItem)
 
-  @Query("SELECT * FROM ide_tooltip_table WHERE tooltipTag == :tooltipTag")
-  suspend fun getTooltip(tooltipTag: String) : IDETooltipItem
+  @Query("SELECT * FROM TooltipItem WHERE tooltipTag == :tooltipTag")
+  suspend fun getTooltip(tooltipTag: String) : TooltipItem
 
-  @Query("DELETE FROM ide_tooltip_table")
+  @Query("DELETE FROM TooltipItem")
   suspend fun deleteAll()
 
-  @Query("SELECT COUNT(*) FROM ide_tooltip_table")
+  @Query("SELECT COUNT(*) FROM TooltipItem")
   suspend fun getCount(): Int
 }

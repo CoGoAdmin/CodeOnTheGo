@@ -2,8 +2,6 @@ package com.itsaky.androidide.tooltips
 
 import android.content.Context
 import android.util.Log
-import com.itsaky.androidide.tooltips.ide.IDETooltipDatabase.Companion.getDatabase
-import com.itsaky.androidide.tooltips.ide.IDETooltipItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,8 +13,10 @@ object LoadTooltips {
     fun loadData(context: Context) {
         CoroutineScope(Dispatchers.IO).launch {
 
-            val db = getDatabase(context)
-            val dao = db.idetooltipDao()
+            val db = TooltipDatabaseProvider.getDatabase(context)
+            val ideDao = db.ideTooltipDao()
+            val javaDao = db.javaTooltipDao()
+            val kotlinDao = db.kotlinTooltipDao()
 
             val jsonString: String =
                 loadJsonFromAssets(context, "CoGoTooltips/misc/CoGoTooltips.json")
@@ -24,20 +24,46 @@ object LoadTooltips {
             try {
                 for (index in 0 until arrayObj.length()) {
                     val jsonObj: JSONObject = arrayObj.get(index) as JSONObject
+                    val category = jsonObj.getString("category")
                     val tag = jsonObj.getString("tag")
                     val summary = jsonObj.getString("summary")
                     val detail = jsonObj.getString("detail")
-                    val buttonList = jsonObj.get("buttonList") as JSONArray
+                    val buttonList = jsonObj.get("buttons") as JSONArray
                     val buttonsList = readJsonArrayOfArrays(context, buttonList)
-                    //TODO JMT make this a when based on category
-                    val item = IDETooltipItem(
-                        tooltipTag = tag,
-                        summary = summary,
-                        detail = detail,
-                        buttons = buttonsList
-                    )
 
-                    dao.insert(item)
+                    when (category) {
+                        "ide" -> {
+                            ideDao.insert(
+                                TooltipItem(
+                                    tooltipTag = tag,
+                                    summary = summary,
+                                    detail = detail,
+                                    buttons = buttonsList
+                                )
+                            )
+                        }
+                        "java" -> {
+                            javaDao.insert(
+                                TooltipItem(
+                                    tooltipTag = tag,
+                                    summary = summary,
+                                    detail = detail,
+                                    buttons = buttonsList
+                                )
+                            )
+                        }
+                        "kotlin" -> {
+                            kotlinDao.insert(
+                                TooltipItem(
+                                    tooltipTag = tag,
+                                    summary = summary,
+                                    detail = detail,
+                                    buttons = buttonsList
+                                )
+                            )
+                        }
+                        else -> {}
+                    }
                 }
 
 //TODO JMT do we really want this
