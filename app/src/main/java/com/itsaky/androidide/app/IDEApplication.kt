@@ -43,8 +43,6 @@ import com.itsaky.androidide.events.EditorEventsIndex
 import com.itsaky.androidide.events.LspApiEventsIndex
 import com.itsaky.androidide.events.LspJavaEventsIndex
 import com.itsaky.androidide.events.ProjectsApiEventsIndex
-import com.itsaky.androidide.idetooltips.IDETooltipDao
-import com.itsaky.androidide.idetooltips.IDETooltipDatabase
 import com.itsaky.androidide.localHTTPServer.LocalServerUtil
 import com.itsaky.androidide.preferences.internal.DevOpsPreferences
 import com.itsaky.androidide.preferences.internal.GeneralPreferences
@@ -135,12 +133,6 @@ class IDEApplication : TermuxApplication() {
             IDEColorSchemeProvider.init()
         }
 
-        idetooltipDao = IDETooltipDatabase.getDatabase(this).idetooltipDao()
-
-        //Trigger a lightweight database access to force initialization
-        applicationScope.launch {
-            idetooltipDao.getCount()
-        }
     }
 
     private fun handleCrash(thread: Thread, th: Throwable) {
@@ -289,9 +281,6 @@ class IDEApplication : TermuxApplication() {
 
         @JvmStatic
         lateinit var instance: IDEApplication
-            private set
-
-        lateinit var idetooltipDao: IDETooltipDao
             private set
     }
 

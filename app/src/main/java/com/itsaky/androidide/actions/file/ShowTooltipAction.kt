@@ -42,7 +42,7 @@ class ShowTooltipAction(private val context: Context, override val order: Int) :
         val activity = data.getActivity()
         val word = editor.text.substring(cursor.left, cursor.right)
         if (cursor.isSelected) {
-            activity?.getTooltipData(word)?.let { tooltipData ->
+            activity?.getTooltipData(word)?.let { tooltip ->
                 TooltipUtils.showEditorTooltip(
                     context,
                     editor,
