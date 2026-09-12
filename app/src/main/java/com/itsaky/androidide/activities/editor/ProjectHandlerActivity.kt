@@ -391,6 +391,11 @@ abstract class ProjectHandlerActivity : BaseEditorActivity() {
 	}
 
 	override fun preDestroy() {
+		// First, and on every destroy rather than only a finishing one: onConnected is a bound
+		// reference to this activity, so leaving it set lets a bind that is still pending deliver
+		// into an instance that is already tearing down.
+		buildServiceConnection.onConnected = null
+
 		syncNotificationFlashbar?.dismiss()
 		syncNotificationFlashbar = null
 
@@ -416,8 +421,7 @@ abstract class ProjectHandlerActivity : BaseEditorActivity() {
 			}
 
 			try {
-				unbindService(buildServiceConnection)
-				buildServiceConnection.onConnected = {}
+				applicationContext.unbindService(buildServiceConnection)
 			} catch (_: Throwable) {
 				log.error("Unable to unbind service")
 			} finally {
@@ -494,9 +498,13 @@ abstract class ProjectHandlerActivity : BaseEditorActivity() {
 
 		buildServiceConnection.onConnected = this::onGradleBuildServiceConnected
 
+		// Bind through the application context, not the activity. LoadedApk.mServices keys its
+		// ServiceDispatcher on the binding Context, so an activity-scoped bind that outlives the
+		// instance -- a configuration change skips the unbind in preDestroy -- retains the dead
+		// activity through the framework's own bookkeeping.
 		if (
-			bindService(
-				Intent(this, GradleBuildService::class.java),
+			applicationContext.bindService(
+				Intent(applicationContext, GradleBuildService::class.java),
 				buildServiceConnection,
 				BIND_AUTO_CREATE or BIND_IMPORTANT,
 			)
